@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// SQLite has no native enum support in Prisma, so roles/statuses are plain
+// strings constrained by the application layer (see lib/auth.ts, zod schemas
+// in the API routes, and types/roles.ts for the allowed values).
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  passwordHash  String
+  name          String
+  role          String // EMPLOYER | JOBSEEKER | ADMIN
+  createdAt     DateTime @default(now())
+
+  employerProfile  EmployerProfile?
+  jobSeekerProfile JobSeekerProfile?
+  payments         Payment[]
+}
+
+model EmployerProfile {
+  id                     String    @id @default(cuid())
+  userId                 String    @unique
+  user                   User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  companyName            String
+  companyWebsite         String?
+  contactPhone           String?
+  subscriptionStatus     String    @default("NONE") // NONE | ACTIVE | EXPIRED | CANCELLED
+  subscriptionExpiresAt  DateTime?
+  razorpaySubscriptionId String?
+  createdAt              DateTime  @default(now())
+
+  jobs Job[]
+}
+
+model JobSeekerProfile {
+  id              String    @id @default(cuid())
+  userId          String    @unique
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  headline        String?
+  specialty       String?
+  yearsExperience Int?
+  phone           String?
+  resumeUrl       String?
+  isGold          Boolean   @default(false)
+  goldExpiresAt   DateTime?
+  createdAt       DateTime  @default(now())
+
+  applications Application[]
+}
+
+model Job {
+  id             String          @id @default(cuid())
+  employerId     String
+  employer       EmployerProfile @relation(fields: [employerId], references: [id], onDelete: Cascade)
+  title          String
+  specialty      String
+  description    String
+  location       String
+  employmentType String          @default("FULL_TIME") // FULL_TIME | PART_TIME | CONTRACT | LOCUM | PER_DIEM
+  salaryMin      Int?
+  salaryMax      Int?
+  status         String          @default("OPEN") // DRAFT | OPEN | CLOSED
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  applications Application[]
+}
+
+model Application {
+  id          String           @id @default(cuid())
+  jobId       String
+  job         Job              @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  jobSeekerId String
+  jobSeeker   JobSeekerProfile @relation(fields: [jobSeekerId], references: [id], onDelete: Cascade)
+  coverNote   String?
+  status      String           @default("APPLIED") // APPLIED | SHORTLISTED | REJECTED | HIRED
+  createdAt   DateTime         @default(now())
+
+  @@unique([jobId, jobSeekerId])
+}
+
+model Payment {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type              String // EMPLOYER_SUBSCRIPTION | JOBSEEKER_GOLD
+  amountPaise       Int
+  razorpayOrderId   String?
+  razorpayPaymentId String?
+  status            String   @default("CREATED") // CREATED | PAID | FAILED
+  createdAt         DateTime @default(now())
+}
