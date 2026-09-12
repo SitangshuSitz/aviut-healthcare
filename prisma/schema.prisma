@@ -3,13 +3,13 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-// SQLite has no native enum support in Prisma, so roles/statuses are plain
-// strings constrained by the application layer (see lib/auth.ts, zod schemas
-// in the API routes, and types/roles.ts for the allowed values).
+// Roles/statuses are plain strings constrained by the application layer
+// (see lib/auth.ts, zod schemas in the API routes, and types/roles.ts for
+// the allowed values) rather than native Prisma enums.
 
 model User {
   id            String   @id @default(cuid())
