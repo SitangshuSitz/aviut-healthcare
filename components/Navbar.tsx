@@ -21,11 +21,14 @@ export function Navbar() {
           <Link href="/jobseeker/jobs" className="hover:text-brand-blue">
             Browse Jobs
           </Link>
-          <Link href="/#pricing" className="hover:text-brand-blue">
+          <Link href="/employers" className="hover:text-brand-blue">
+            For Employers
+          </Link>
+          <Link href="/pricing" className="hover:text-brand-blue">
             Pricing
           </Link>
-          <Link href="/#employers" className="hover:text-brand-blue">
-            For Employers
+          <Link href="/about" className="hover:text-brand-blue">
+            About
           </Link>
         </nav>
         <div className="flex items-center gap-3">

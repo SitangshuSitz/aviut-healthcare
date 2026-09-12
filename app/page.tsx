@@ -9,8 +9,10 @@ export default function HomePage() {
     <div className="min-h-screen overflow-hidden bg-[#f7f5f0]">
       <Navbar />
 
-      <section className="relative bg-brand-navy text-white">
-        <div className="absolute inset-y-0 right-0 hidden w-2/5 bg-brand-red md:block" />
+      <section className="relative overflow-hidden bg-brand-navy text-white">
+        <div className="hero-glow" />
+        <div className="grid-overlay absolute inset-0" />
+        <div className="absolute inset-y-0 right-0 hidden w-2/5 bg-brand-red/90 md:block" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-[1.08fr_0.92fr] md:py-24">
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#f4c67b]"><span className="h-2 w-2 rounded-full bg-brand-red" /> Healthcare, connected</span>
@@ -51,12 +53,15 @@ export default function HomePage() {
           <h2 className="mt-4 font-serif text-4xl leading-tight text-brand-navy md:text-5xl">A platform that understands the work.</h2>
           <p className="mt-5 text-lg leading-8 text-slate-600">From first application to first shift, Aviut brings the people and the places of care closer together.</p>
         </div>
-        <div id="employers" className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           <div className="bg-brand-navy p-8 text-white md:p-10">
             <span className="text-sm font-bold uppercase tracking-widest text-[#f4c67b]">For employers</span>
             <h3 className="mt-5 text-3xl font-bold">Spend less time screening. More time caring.</h3>
             <p className="mt-4 leading-7 text-slate-300">Reach professionals by specialty, experience, and shift preference. Post roles, manage applicants, and build your next great care team from one focused dashboard.</p>
-            <Link href="/auth/register?role=employer" className="mt-8 inline-flex font-bold text-white underline decoration-brand-red decoration-2 underline-offset-8">Start hiring</Link>
+            <div className="mt-8 flex flex-wrap gap-6">
+              <Link href="/auth/register?role=employer" className="font-bold text-white underline decoration-brand-red decoration-2 underline-offset-8">Start hiring</Link>
+              <Link href="/employers" className="font-bold text-[#f4c67b] underline decoration-[#f4c67b] decoration-2 underline-offset-8">Learn more</Link>
+            </div>
           </div>
           <div className="bg-[#e6eee9] p-8 text-brand-navy md:p-10">
             <span className="text-sm font-bold uppercase tracking-widest text-brand-green">For professionals</span>
@@ -67,7 +72,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="pricing" className="bg-white">
+      <section className="bg-white">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 md:grid-cols-[0.9fr_1.1fr] md:py-24">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-blue">Simple by design</p>
@@ -79,6 +84,9 @@ export default function HomePage() {
             <div className="bg-[#fffaf0] p-6"><p className="text-sm font-bold text-brand-gold">Gold member</p><p className="mt-3 text-3xl font-bold text-brand-navy">{formatRupees(PLAN_AMOUNTS.JOBSEEKER_GOLD)}</p><p className="mt-2 text-sm text-slate-500">Priority visibility</p></div>
             <div className="bg-brand-navy p-6 text-white"><p className="text-sm font-bold text-[#f4c67b]">Employer</p><p className="mt-3 text-3xl font-bold">{formatRupees(PLAN_AMOUNTS.EMPLOYER_SUBSCRIPTION)}</p><p className="mt-2 text-sm text-slate-300">Unlimited hiring</p></div>
           </div>
+        </div>
+        <div className="mx-auto max-w-6xl px-4 pb-20 md:pb-24">
+          <Link href="/pricing" className="inline-flex font-bold text-brand-blue underline decoration-brand-blue decoration-2 underline-offset-8">See full pricing details</Link>
         </div>
       </section>
 
