@@ -1,6 +1,14 @@
 // Prices shown on the public site. Amounts are in rupees.
 
-export const JOBSEEKER_GOLD_PLAN = { name: "Gold member", price: 2199, period: "per year" } as const;
+export const JOBSEEKER_GOLD_MONTHLY = { name: "Gold monthly", price: 299, period: "per month" } as const;
+export const JOBSEEKER_GOLD_YEARLY = { name: "Gold yearly", price: 2199, period: "per year" } as const;
+
+// Yearly Gold compared with paying monthly for 12 months.
+export function goldYearlySaving() {
+  const regular = JOBSEEKER_GOLD_MONTHLY.price * 12;
+  const saved = regular - JOBSEEKER_GOLD_YEARLY.price;
+  return { regular, saved, percent: Math.round((saved / regular) * 100) };
+}
 
 export type EmployerPlan = {
   name: string;

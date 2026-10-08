@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { LogoMark } from "@/components/Logo";
-import { EMPLOYER_PLANS, JOBSEEKER_GOLD_PLAN, formatPrice } from "@/lib/plans";
+import { EMPLOYER_PLANS, JOBSEEKER_GOLD_MONTHLY, formatPrice } from "@/lib/plans";
 
 export default function HomePage() {
   return (
@@ -81,7 +81,7 @@ export default function HomePage() {
           </div>
           <div className="grid gap-px bg-slate-200 sm:grid-cols-3">
             <div className="bg-white p-6"><p className="text-sm font-bold text-slate-500">Job seeker</p><p className="mt-3 text-3xl font-bold text-brand-navy">₹0</p><p className="mt-2 text-sm text-slate-500">Create, browse, apply</p></div>
-            <div className="bg-[#fffaf0] p-6"><p className="text-sm font-bold text-brand-gold">Gold member</p><p className="mt-3 text-3xl font-bold text-brand-navy">{formatPrice(JOBSEEKER_GOLD_PLAN.price)}</p><p className="mt-2 text-sm text-slate-500">Per year, priority visibility</p></div>
+            <div className="bg-[#fffaf0] p-6"><p className="text-sm font-bold text-brand-gold">Gold member</p><p className="mt-2 text-xs text-slate-500">From</p><p className="text-3xl font-bold text-brand-navy">{formatPrice(JOBSEEKER_GOLD_MONTHLY.price)}</p><p className="mt-2 text-sm text-slate-500">Per month, priority visibility</p></div>
             <div className="bg-brand-navy p-6 text-white"><p className="text-sm font-bold text-[#f4c67b]">Employer</p><p className="mt-2 text-xs text-slate-300">From</p><p className="text-3xl font-bold">{formatPrice(EMPLOYER_PLANS[0].price)}</p><p className="mt-2 text-sm text-slate-300">Per month, {EMPLOYER_PLANS[0].posts.split(" / ")[0]}</p></div>
           </div>
         </div>
