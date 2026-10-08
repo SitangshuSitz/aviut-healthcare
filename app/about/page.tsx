@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Typewriter } from "@/components/Typewriter";
+import { Reveal } from "@/components/Reveal";
 
 export default function AboutPage() {
   return (
@@ -13,7 +15,8 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-4xl px-4 py-24 text-center md:py-32">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#f4c67b]">About Aviut</span>
           <h1 className="mt-6 font-serif text-4xl leading-tight md:text-6xl">
-            A hiring network built only for healthcare.
+            A hiring network built only for{" "}
+            <Typewriter words={["healthcare.", "hospitals.", "clinics.", "caregivers."]} className="text-[#f4c67b]" />
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-200">
             Aviut connects hospitals and clinics with the nurses, allied health professionals, and care
@@ -49,24 +52,24 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-3">
-          <div className="card">
+          <Reveal className="h-full"><div className="card h-full border-t-4 border-t-brand-blue">
             <h3 className="font-bold text-brand-navy">Specialty-first</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Roles are organized by healthcare specialty, not generic job categories.
             </p>
-          </div>
-          <div className="card">
+          </div></Reveal>
+          <Reveal className="h-full"><div className="card h-full border-t-4 border-t-brand-blue">
             <h3 className="font-bold text-brand-navy">Direct connections</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Employers and candidates communicate directly once a match is made &mdash; no middleman fees.
             </p>
-          </div>
-          <div className="card">
+          </div></Reveal>
+          <Reveal className="h-full"><div className="card h-full border-t-4 border-t-brand-blue">
             <h3 className="font-bold text-brand-navy">Fair, transparent pricing</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Job seekers browse and apply for free. Employers choose a plan that fits their hiring volume.
             </p>
-          </div>
+          </div></Reveal>
         </div>
       </section>
 
@@ -76,8 +79,8 @@ export default function AboutPage() {
           <Link href="/auth/register?role=employer" className="btn bg-brand-navy px-7 py-3 text-base text-white hover:bg-brand-blue">
             Post a job
           </Link>
-          <Link href="/jobseeker/jobs" className="btn bg-white px-7 py-3 text-base text-brand-navy hover:bg-slate-100">
-            Browse open roles
+          <Link href="/jobseekers" className="btn bg-white px-7 py-3 text-base text-brand-navy hover:bg-slate-100">
+            Find a role
           </Link>
         </div>
       </section>

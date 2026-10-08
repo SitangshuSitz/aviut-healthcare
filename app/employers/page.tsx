@@ -2,6 +2,9 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { EMPLOYER_PLANS, formatPrice } from "@/lib/plans";
+import { Typewriter } from "@/components/Typewriter";
+import { Reveal } from "@/components/Reveal";
+import { RoleMarquee } from "@/components/RoleMarquee";
 
 export default function EmployersPage() {
   return (
@@ -14,7 +17,8 @@ export default function EmployersPage() {
         <div className="relative mx-auto max-w-4xl px-4 py-24 text-center md:py-32">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#f4c67b]">For employers</span>
           <h1 className="mt-6 font-serif text-4xl leading-tight md:text-6xl">
-            Spend less time screening. More time caring.
+            Hire faster for{" "}
+            <Typewriter words={["nursing.", "your ICU.", "your clinic.", "every shift."]} className="text-[#f4c67b]" />
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-200">
             Reach professionals by specialty, experience, and shift preference. Post roles, manage
@@ -31,29 +35,31 @@ export default function EmployersPage() {
         </div>
       </section>
 
+      <RoleMarquee />
+
       <section className="mx-auto max-w-6xl px-4 py-20 md:py-28">
         <div className="grid gap-6 md:grid-cols-3">
-          <div className="card">
+          <Reveal className="h-full"><div className="card h-full border-t-4 border-t-brand-red">
             <h3 className="font-bold text-brand-navy">Plans for every hiring pace</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               From 16 posts a month up to unlimited postings on quarterly and yearly plans.
             </p>
-          </div>
-          <div className="card">
+          </div></Reveal>
+          <Reveal className="h-full"><div className="card h-full border-t-4 border-t-brand-red">
             <h3 className="font-bold text-brand-navy">Manage applicants in one place</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Review, shortlist, and update applicant status from a single dashboard.
             </p>
-          </div>
-          <div className="card">
+          </div></Reveal>
+          <Reveal className="h-full"><div className="card h-full border-t-4 border-t-brand-red">
             <h3 className="font-bold text-brand-navy">Reach the right candidates</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">
               Listings are organized by specialty so relevant candidates find your roles faster.
             </p>
-          </div>
+          </div></Reveal>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-6 rounded-xl border border-brand-navy/10 bg-white p-8 md:flex-row">
+        <Reveal><div className="hover-lift mt-16 flex flex-col items-center justify-between gap-6 rounded-xl border border-brand-navy/10 bg-white p-8 md:flex-row">
           <div>
             <p className="text-sm font-bold uppercase tracking-widest text-brand-gold">Employer plans</p>
             <p className="mt-2 text-3xl font-bold text-brand-navy">
@@ -69,7 +75,7 @@ export default function EmployersPage() {
               Compare all plans
             </Link>
           </div>
-        </div>
+        </div></Reveal>
       </section>
 
       <Footer />

@@ -60,7 +60,7 @@ function EmployerPlans() {
           const saving = limitedPlanSaving(plan);
           const rate = perPostPrice(plan);
           return (
-            <div key={plan.name} className="relative flex flex-col overflow-hidden rounded-xl border border-brand-navy/10 bg-white shadow-sm">
+            <div key={plan.name} className="hover-lift relative flex flex-col overflow-hidden rounded-xl border border-brand-navy/10 bg-white shadow-sm">
               <div className="h-1.5 bg-brand-navy" />
               {saving && (
                 <span className="absolute right-3 top-4 rounded-full bg-brand-green px-2.5 py-1 text-xs font-bold text-white">
@@ -111,7 +111,7 @@ function JobSeekerPlans() {
         <h2 className="mt-3 font-serif text-3xl leading-tight text-brand-navy md:text-4xl">Free to apply. Gold to stand out.</h2>
       </div>
       <div className="mx-auto mt-10 grid max-w-5xl gap-6 md:grid-cols-3">
-        <div className="flex flex-col overflow-hidden rounded-xl border border-brand-green/20 bg-[#f1f6f3] shadow-sm">
+        <div className="hover-lift flex flex-col overflow-hidden rounded-xl border border-brand-green/20 bg-[#f1f6f3] shadow-sm">
           <div className="h-1.5 bg-brand-green" />
           <div className="flex flex-1 flex-col p-8">
             <p className="text-sm font-bold uppercase tracking-widest text-brand-green">Free</p>
@@ -146,7 +146,7 @@ function GoldCard({
   saving?: { regular: number; saved: number; percent: number };
 }) {
   return (
-    <div className="relative flex flex-col overflow-hidden rounded-xl border-2 border-brand-gold bg-[#fffaf0] shadow-sm">
+    <div className="hover-lift relative flex flex-col overflow-hidden rounded-xl border-2 border-brand-gold bg-[#fffaf0] shadow-sm">
       <div className="h-1.5 bg-brand-gold" />
       {saving && (
         <span className="absolute right-4 top-5 rounded-full bg-brand-green px-2.5 py-1 text-xs font-bold text-white">

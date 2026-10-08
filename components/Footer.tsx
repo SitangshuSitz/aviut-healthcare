@@ -18,6 +18,7 @@ export function Footer() {
             <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Platform</p>
             <ul className="mt-4 space-y-3 text-sm text-slate-600">
               {!isStaticSite && <li><Link href="/jobseeker/jobs" className="hover:text-brand-blue">Browse Jobs</Link></li>}
+              <li><Link href="/jobseekers" className="hover:text-brand-blue">For Job Seekers</Link></li>
               <li><Link href="/employers" className="hover:text-brand-blue">For Employers</Link></li>
               <li><Link href="/pricing" className="hover:text-brand-blue">Pricing</Link></li>
               <li><Link href="/about" className="hover:text-brand-blue">About</Link></li>

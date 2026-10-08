@@ -14,17 +14,20 @@ export function Navbar() {
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
           {!isStaticSite && (
-            <Link href="/jobseeker/jobs" className="hover:text-brand-blue">
+            <Link href="/jobseeker/jobs" className="link-underline hover:text-brand-blue">
               Browse Jobs
             </Link>
           )}
-          <Link href="/employers" className="hover:text-brand-blue">
+          <Link href="/jobseekers" className="link-underline hover:text-brand-blue">
+            For Job Seekers
+          </Link>
+          <Link href="/employers" className="link-underline hover:text-brand-blue">
             For Employers
           </Link>
-          <Link href="/pricing" className="hover:text-brand-blue">
+          <Link href="/pricing" className="link-underline hover:text-brand-blue">
             Pricing
           </Link>
-          <Link href="/about" className="hover:text-brand-blue">
+          <Link href="/about" className="link-underline hover:text-brand-blue">
             About
           </Link>
         </nav>
@@ -34,6 +37,12 @@ export function Navbar() {
           <AccountActions />
         )}
       </div>
+      <nav className="flex gap-5 overflow-x-auto whitespace-nowrap px-4 pb-3 text-sm font-medium text-slate-600 md:hidden">
+        <Link href="/jobseekers" className="hover:text-brand-blue">For Job Seekers</Link>
+        <Link href="/employers" className="hover:text-brand-blue">For Employers</Link>
+        <Link href="/pricing" className="hover:text-brand-blue">Pricing</Link>
+        <Link href="/about" className="hover:text-brand-blue">About</Link>
+      </nav>
     </header>
   );
 }
