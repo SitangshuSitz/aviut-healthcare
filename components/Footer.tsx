@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { isStaticSite } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -16,7 +17,7 @@ export function Footer() {
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Platform</p>
             <ul className="mt-4 space-y-3 text-sm text-slate-600">
-              <li><Link href="/jobseeker/jobs" className="hover:text-brand-blue">Browse Jobs</Link></li>
+              {!isStaticSite && <li><Link href="/jobseeker/jobs" className="hover:text-brand-blue">Browse Jobs</Link></li>}
               <li><Link href="/employers" className="hover:text-brand-blue">For Employers</Link></li>
               <li><Link href="/pricing" className="hover:text-brand-blue">Pricing</Link></li>
               <li><Link href="/about" className="hover:text-brand-blue">About</Link></li>
