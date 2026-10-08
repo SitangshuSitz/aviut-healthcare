@@ -33,10 +33,20 @@ export function Typewriter({ words, className = "" }: { words: string[]; classNa
     return () => clearTimeout(timer);
   }, [animate, deleting, index, text, words]);
 
+  // An invisible copy of the longest word reserves its space, so the heading
+  // wraps the same way and keeps the same height whichever word is showing.
+  const longest = words.reduce((a, b) => (b.length > a.length ? b : a));
+
   return (
-    <span className={className}>
-      <span aria-hidden="true">{text}</span>
-      <span className="typewriter-caret" aria-hidden="true" />
+    <span className={`inline-grid text-left ${className}`}>
+      <span aria-hidden="true" className="invisible col-start-1 row-start-1 whitespace-nowrap">
+        {longest}
+        <span className="typewriter-caret" />
+      </span>
+      <span aria-hidden="true" className="col-start-1 row-start-1 whitespace-nowrap">
+        {text}
+        <span className="typewriter-caret" />
+      </span>
       <span className="sr-only">{words[0]}</span>
     </span>
   );
