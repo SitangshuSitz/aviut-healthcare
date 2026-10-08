@@ -5,8 +5,8 @@ A healthcare professional hiring platform (Zoho-style) built with Next.js, Prism
 ## Features
 
 - Separate **Employer** and **Job Seeker** login/signup
-- Employers: post jobs, manage applicants, subscription-gated at **₹999/month**
-- Job seekers: free browsing/applying, **Gold Membership** (₹299/month) unlocks employer contact emails and priority visibility
+- Employers: post jobs, manage applicants, subscription plans from **₹399/month** (16 posts) to **₹12,999/year** (unlimited)
+- Job seekers: free browsing/applying, **Gold Membership** (₹2,199/year) unlocks employer contact emails and priority visibility
 - Razorpay Checkout for subscription payments, with signature verification + webhook support
 
 ## Setup

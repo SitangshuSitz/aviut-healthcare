@@ -64,7 +64,7 @@ export default function AboutPage() {
           <div className="card">
             <h3 className="font-bold text-brand-navy">Fair, transparent pricing</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">
-              Job seekers browse and apply for free. Employers pay one predictable monthly subscription.
+              Job seekers browse and apply for free. Employers choose a plan that fits their hiring volume.
             </p>
           </div>
         </div>

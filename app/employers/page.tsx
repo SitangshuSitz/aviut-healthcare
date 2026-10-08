@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { formatRupees, PLAN_AMOUNTS } from "@/lib/razorpay";
+import { EMPLOYER_PLANS, formatPrice } from "@/lib/plans";
 
 export default function EmployersPage() {
   return (
@@ -34,9 +34,9 @@ export default function EmployersPage() {
       <section className="mx-auto max-w-6xl px-4 py-20 md:py-28">
         <div className="grid gap-6 md:grid-cols-3">
           <div className="card">
-            <h3 className="font-bold text-brand-navy">Post unlimited roles</h3>
+            <h3 className="font-bold text-brand-navy">Plans for every hiring pace</h3>
             <p className="mt-2 text-sm leading-6 text-slate-600">
-              One subscription covers every open position &mdash; no per-post fees.
+              From 16 posts a month up to unlimited postings on quarterly and yearly plans.
             </p>
           </div>
           <div className="card">
@@ -55,9 +55,9 @@ export default function EmployersPage() {
 
         <div className="mt-16 flex flex-col items-center justify-between gap-6 rounded-xl border border-brand-navy/10 bg-white p-8 md:flex-row">
           <div>
-            <p className="text-sm font-bold uppercase tracking-widest text-brand-gold">Employer plan</p>
+            <p className="text-sm font-bold uppercase tracking-widest text-brand-gold">Employer plans</p>
             <p className="mt-2 text-3xl font-bold text-brand-navy">
-              {formatRupees(PLAN_AMOUNTS.EMPLOYER_SUBSCRIPTION)}
+              <span className="text-base font-medium text-slate-500">From </span>{formatPrice(EMPLOYER_PLANS[0].price)}
               <span className="text-base font-medium text-slate-500"> / month</span>
             </p>
           </div>
