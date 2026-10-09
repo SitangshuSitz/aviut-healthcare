@@ -4,6 +4,7 @@ const ROLES = [
   "Doctors",
   "Physiotherapists",
   "Lab Technicians",
+  "Medical Representatives",
   "Pharmacists",
   "Radiographers",
   "Care Coordinators",
