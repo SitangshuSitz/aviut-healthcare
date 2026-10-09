@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
+import { HeroEmblems } from "@/components/MedicalEmblem";
 import { Footer } from "@/components/Footer";
 import { Typewriter } from "@/components/Typewriter";
 import { Reveal } from "@/components/Reveal";
@@ -29,6 +30,7 @@ export default function JobSeekersPage() {
       <section className="relative overflow-hidden bg-brand-navy text-white">
         <div className="hero-glow" />
         <div className="grid-overlay absolute inset-0" />
+        <HeroEmblems />
         <div className="relative mx-auto max-w-4xl px-4 py-24 text-center md:py-32">
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#f4c67b]">For job seekers</span>
           <h1 className="mt-6 font-serif text-4xl leading-tight md:text-6xl">

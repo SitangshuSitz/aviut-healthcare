@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { LogoMark } from "@/components/Logo";
+import { Caduceus, RodOfAsclepius } from "@/components/MedicalEmblem";
 import { Typewriter } from "@/components/Typewriter";
 import { Reveal } from "@/components/Reveal";
 import { RoleMarquee } from "@/components/RoleMarquee";
@@ -23,6 +24,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-brand-navy text-white">
         <div className="hero-glow" />
         <div className="grid-overlay absolute inset-0" />
+        <RodOfAsclepius className="pointer-events-none absolute -left-6 top-1/2 h-[115%] -translate-y-1/2 -rotate-6 text-white opacity-[0.06]" />
         <div className="absolute inset-y-0 right-0 hidden w-2/5 bg-brand-red/90 md:block" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-[1.08fr_0.92fr] md:py-24">
           <div className="max-w-2xl">
@@ -78,7 +80,8 @@ export default function HomePage() {
         </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           <Reveal>
-            <div className="hover-lift h-full bg-brand-navy p-8 text-white md:p-10">
+            <div className="hover-lift relative isolate h-full overflow-hidden bg-brand-navy p-8 text-white md:p-10">
+              <Caduceus className="pointer-events-none absolute -bottom-10 -right-6 -z-10 h-72 rotate-12 text-white opacity-[0.07]" />
               <span className="text-sm font-bold uppercase tracking-widest text-[#f4c67b]">For employers</span>
               <h3 className="mt-5 text-3xl font-bold">Spend less time screening. More time caring.</h3>
               <p className="mt-4 leading-7 text-slate-300">Reach professionals by specialty, experience, and shift preference. Post roles, manage applicants, and build your next great care team from one focused dashboard.</p>
@@ -89,7 +92,8 @@ export default function HomePage() {
             </div>
           </Reveal>
           <Reveal delay={150}>
-            <div className="hover-lift h-full bg-[#e6eee9] p-8 text-brand-navy md:p-10">
+            <div className="hover-lift relative isolate h-full overflow-hidden bg-[#e6eee9] p-8 text-brand-navy md:p-10">
+              <RodOfAsclepius className="pointer-events-none absolute -bottom-10 -right-2 -z-10 h-72 rotate-12 text-brand-green opacity-[0.15]" />
               <span className="text-sm font-bold uppercase tracking-widest text-brand-green">For professionals</span>
               <h3 className="mt-5 text-3xl font-bold">A role that fits your life and your license.</h3>
               <p className="mt-4 leading-7 text-slate-600">Create a profile once, explore relevant openings, and keep every application organized. Your next opportunity should feel like a step forward.</p>
