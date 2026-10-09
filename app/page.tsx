@@ -27,7 +27,7 @@ export default function HomePage() {
         <div className="grid-overlay absolute inset-0" />
         <RodOfAsclepius className="pointer-events-none absolute -left-6 top-1/2 h-[115%] -translate-y-1/2 -rotate-6 text-white opacity-[0.06]" />
         <div className="absolute inset-y-0 right-0 hidden w-2/5 bg-brand-red/90 md:block" />
-        <Caduceus className="pointer-events-none absolute -right-28 top-1/2 hidden h-[105%] -translate-y-1/2 rotate-6 text-white opacity-[0.12] md:block" />
+        <Caduceus className="pointer-events-none absolute -right-20 top-1/2 hidden h-[85%] -translate-y-1/2 rotate-6 text-white opacity-[0.12] md:block" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-[1.08fr_0.92fr] md:py-24">
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#f4c67b]"><span className="h-2 w-2 animate-pulse rounded-full bg-brand-red" /> Healthcare, connected</span>
