@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { isStaticSite } from "@/lib/site";
+import { isStaticSite, SUPPORT_EMAIL } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -13,6 +13,9 @@ export function Footer() {
               The dedicated hiring network for hospitals, clinics, and the healthcare professionals who
               keep them moving.
             </p>
+            <a href={`mailto:${SUPPORT_EMAIL}`} className="mt-4 inline-block text-sm font-semibold text-brand-navy hover:text-brand-blue">
+              {SUPPORT_EMAIL}
+            </a>
           </div>
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Platform</p>
@@ -22,6 +25,7 @@ export function Footer() {
               <li><Link href="/employers" className="hover:text-brand-blue">For Employers</Link></li>
               <li><Link href="/pricing" className="hover:text-brand-blue">Pricing</Link></li>
               <li><Link href="/about" className="hover:text-brand-blue">About</Link></li>
+              <li><Link href="/contact" className="hover:text-brand-blue">Contact</Link></li>
             </ul>
           </div>
           <div>

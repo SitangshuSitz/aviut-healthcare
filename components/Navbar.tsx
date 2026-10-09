@@ -30,6 +30,9 @@ export function Navbar() {
           <Link href="/about" className="link-underline hover:text-brand-blue">
             About
           </Link>
+          <Link href="/contact" className="link-underline hover:text-brand-blue">
+            Contact
+          </Link>
         </nav>
         {isStaticSite ? (
           <span className="text-sm font-semibold text-brand-red">Launching soon</span>
@@ -42,6 +45,7 @@ export function Navbar() {
         <Link href="/employers" className="hover:text-brand-blue">For Employers</Link>
         <Link href="/pricing" className="hover:text-brand-blue">Pricing</Link>
         <Link href="/about" className="hover:text-brand-blue">About</Link>
+        <Link href="/contact" className="hover:text-brand-blue">Contact</Link>
       </nav>
     </header>
   );
