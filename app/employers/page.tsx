@@ -1,51 +1,10 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { EMPLOYER_PLANS, formatPrice, perPostPrice } from "@/lib/plans";
+import { EMPLOYER_PLANS, formatPrice } from "@/lib/plans";
 import { Typewriter } from "@/components/Typewriter";
 import { Reveal } from "@/components/Reveal";
 import { RoleMarquee } from "@/components/RoleMarquee";
-
-const STARTER = EMPLOYER_PLANS[0];
-
-const COST_COMPARISON = [
-  { platform: "Premium listing on a major Indian job portal", cost: "₹1,650 per job", perPost: "₹1,650" },
-  { platform: "Pay-per-day sponsored job ads", cost: "From ~₹420 per day, per job", perPost: "₹12,000+ for a 30-day run" },
-  { platform: "Promoted posts on professional networks", cost: "From ~₹600 per day, per job", perPost: "₹18,000+ for a 30-day run" },
-  {
-    platform: `Aviut ${STARTER.name}`,
-    cost: `${formatPrice(STARTER.price)} / month for ${STARTER.postLimit} posts`,
-    perPost: `About ${formatPrice(Math.round(perPostPrice(STARTER)!))}`,
-    highlight: true,
-  },
-];
-
-const WHY_AVIUT = [
-  {
-    title: "A fraction of the cost",
-    body: "Flat monthly plans from ₹399 work out to roughly ₹25 a post on Starter and under ₹15 on Pro. No bidding, no per-click charges, no placement fees.",
-  },
-  {
-    title: "Only healthcare candidates",
-    body: "Every candidate on Aviut is looking for a healthcare role, from nurses and doctors to lab technicians and medical representatives.",
-  },
-  {
-    title: "Simple hiring dashboard",
-    body: "Post a role in minutes and see every job, applicant, and plan detail in one clean dashboard. No training needed.",
-  },
-  {
-    title: "Track every applicant",
-    body: "Move candidates from Applied to Shortlisted to Hired with one click, so your whole team knows where each hire stands.",
-  },
-  {
-    title: "Unlimited options as you grow",
-    body: "Hiring for a new wing or several branches? Quarterly and yearly plans include unlimited job posts.",
-  },
-  {
-    title: "Secure, familiar payments",
-    body: "Pay with UPI, cards, or net banking through Razorpay. Your plan goes live as soon as payment is confirmed.",
-  },
-];
 
 export default function EmployersPage() {
   return (
@@ -98,56 +57,6 @@ export default function EmployersPage() {
               Listings are organized by specialty so relevant candidates find your roles faster.
             </p>
           </div></Reveal>
-        </div>
-
-        <div className="mt-24">
-          <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-red">Why Aviut</span>
-              <h2 className="mt-4 font-serif text-3xl leading-tight text-brand-navy md:text-5xl">
-                Healthcare hiring that costs less and does more.
-              </h2>
-              <p className="mt-5 text-lg leading-8 text-slate-600">
-                General job boards charge per listing or per day and bury clinical roles among millions of
-                others. Aviut is built only for healthcare, with flat monthly plans and everything you need
-                to track every applicant.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal><div className="mt-12 overflow-x-auto rounded-xl border border-brand-navy/10 bg-white">
-            <table className="w-full min-w-[560px] text-left text-sm">
-              <thead className="bg-brand-navy/5 text-xs uppercase tracking-widest text-brand-navy/70">
-                <tr>
-                  <th className="px-6 py-4 font-bold">Platform type</th>
-                  <th className="px-6 py-4 font-bold">Typical cost</th>
-                  <th className="px-6 py-4 font-bold">Approx. cost per job post</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-brand-navy/10 text-slate-600">
-                {COST_COMPARISON.map((row) => (
-                  <tr key={row.platform} className={row.highlight ? "bg-[#fdf3e3] font-semibold text-brand-navy" : ""}>
-                    <td className="px-6 py-4">{row.platform}</td>
-                    <td className="px-6 py-4">{row.cost}</td>
-                    <td className="px-6 py-4">{row.perPost}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div></Reveal>
-          <p className="mt-3 text-xs text-slate-500">
-            Based on publicly listed prices for India-based employers as of October 2026, before GST.
-            Competitor prices vary by plan, role, and location.
-          </p>
-
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {WHY_AVIUT.map((item) => (
-              <Reveal key={item.title} className="h-full"><div className="card h-full">
-                <h3 className="font-bold text-brand-navy">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{item.body}</p>
-              </div></Reveal>
-            ))}
-          </div>
         </div>
 
         <Reveal><div className="hover-lift mt-16 flex flex-col items-center justify-between gap-6 rounded-xl border border-brand-navy/10 bg-white p-8 md:flex-row">
