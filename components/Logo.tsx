@@ -9,12 +9,11 @@ export function LogoMark({ size = 36 }: { size?: number }) {
       aria-hidden="true"
     >
       <path
-        d="M24 42S5 31.5 5 17.8C5 11.3 10.2 6 16.6 6c3.4 0 6.6 1.6 8.6 4.2C27.2 7.6 30.4 6 33.8 6 40.2 6 45 11.3 45 17.8 45 31.5 24 42 24 42z"
-        transform="translate(-1)"
+        d="M24 42C24 42 4 31 4 17.5 4 11.1 8.9 6 15.2 6 19 6 22.2 8 24 11 25.8 8 29 6 32.8 6 39.1 6 44 11.1 44 17.5 44 31 24 42 24 42z"
         fill="#E4463B"
       />
-      <rect x="18.5" y="14" width="7" height="20" rx="1.5" fill="#fff" />
-      <rect x="11.5" y="21" width="21" height="7" rx="1.5" fill="#fff" />
+      <rect x="20.5" y="13" width="7" height="18" rx="1.5" fill="#fff" />
+      <rect x="15" y="18.5" width="18" height="7" rx="1.5" fill="#fff" />
     </svg>
   );
 }
