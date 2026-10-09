@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { Logo } from "@/components/Logo";
-import { Caduceus, RodOfAsclepius } from "@/components/MedicalEmblem";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -29,9 +28,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="relative isolate flex min-h-screen items-center justify-center overflow-hidden bg-brand-bg px-4 py-12">
-      <RodOfAsclepius className="pointer-events-none absolute -left-10 top-1/2 -z-10 hidden h-[80vh] -translate-y-1/2 -rotate-6 text-brand-navy opacity-[0.05] md:block" />
-      <Caduceus className="pointer-events-none absolute -right-14 top-1/2 -z-10 hidden h-[80vh] -translate-y-1/2 rotate-6 text-brand-navy opacity-[0.05] md:block" />
+    <div className="flex min-h-screen items-center justify-center bg-brand-bg px-4 py-12">
       <div className="card w-full max-w-md">
         <div className="mb-6 flex justify-center">
           <Logo size={38} />

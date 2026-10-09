@@ -3,10 +3,12 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { LogoMark } from "@/components/Logo";
 import { Caduceus, RodOfAsclepius } from "@/components/MedicalEmblem";
+import { EcgLine } from "@/components/EcgLine";
 import { Typewriter } from "@/components/Typewriter";
 import { Reveal } from "@/components/Reveal";
 import { RoleMarquee } from "@/components/RoleMarquee";
 import { EMPLOYER_PLANS, JOBSEEKER_GOLD_MONTHLY, formatPrice } from "@/lib/plans";
+import { SUPPORT_EMAIL } from "@/lib/site";
 
 const HERO_WORDS = ["people.", "nurses.", "doctors.", "care teams.", "specialists."];
 
@@ -26,6 +28,7 @@ export default function HomePage() {
         <div className="grid-overlay absolute inset-0" />
         <RodOfAsclepius className="pointer-events-none absolute -left-6 top-1/2 h-[115%] -translate-y-1/2 -rotate-6 text-white opacity-[0.06]" />
         <div className="absolute inset-y-0 right-0 hidden w-2/5 bg-brand-red/90 md:block" />
+        <Caduceus className="pointer-events-none absolute -right-28 top-1/2 hidden h-[105%] -translate-y-1/2 rotate-6 text-white opacity-[0.12] md:block" />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 md:grid-cols-[1.08fr_0.92fr] md:py-24">
           <div className="max-w-2xl">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[#f4c67b]"><span className="h-2 w-2 animate-pulse rounded-full bg-brand-red" /> Healthcare, connected</span>
@@ -41,19 +44,37 @@ export default function HomePage() {
           </div>
           <div className="relative z-10 md:pl-8">
             <div className="float-slow">
+              {/* Styled after an Indian hospital prescription pad */}
               <div className="border border-white/20 bg-[#f7f5f0] p-5 text-brand-navy shadow-2xl transition duration-500 hover:rotate-0 md:-rotate-2 md:p-7">
-                <div className="flex items-center gap-3 border-b border-brand-navy/15 pb-5">
-                  <LogoMark size={42} />
-                  <div><p className="font-bold">How Aviut works</p><p className="text-xs text-slate-500">Three steps from opening to hire</p></div>
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <LogoMark size={42} />
+                    <div><p className="font-extrabold uppercase tracking-wide">Aviut Healthcare</p><p className="text-xs text-slate-500">How Aviut works &middot; Three steps from opening to hire</p></div>
+                  </div>
+                  <RodOfAsclepius className="h-12 shrink-0 text-brand-red" />
                 </div>
-                <ol className="space-y-4 pt-5">
+                <div className="mt-4 border-t-2 border-brand-red" />
+                <div className="mt-0.5 border-t border-brand-navy/40" />
+                <div className="flex justify-between gap-4 pt-3 text-xs text-slate-500">
+                  <p>Name: <span className="border-b border-dotted border-slate-400 px-1 font-semibold text-brand-navy">Your care team</span></p>
+                  <p>Date: <span className="border-b border-dotted border-slate-400 px-1 font-semibold text-brand-navy">Today</span></p>
+                </div>
+                <p className="mt-3 font-serif text-4xl leading-none text-brand-red" aria-hidden="true">&#8478;</p>
+                <ol className="mt-1">
                   {HOW_IT_WORKS.map((s) => (
-                    <li key={s.step} className="group flex gap-4 rounded-lg p-2 transition hover:bg-white">
+                    <li key={s.step} className="group flex gap-4 border-b border-dashed border-brand-navy/15 p-2 py-3 transition last:border-0 hover:bg-white">
                       <span className="font-serif text-2xl text-brand-red transition group-hover:scale-110">{s.step}</span>
                       <div><p className="font-bold">{s.title}</p><p className="mt-1 text-sm leading-6 text-slate-600">{s.text}</p></div>
                     </li>
                   ))}
                 </ol>
+                <div className="mt-3 flex items-end justify-between gap-4">
+                  <p className="text-[11px] text-slate-500">{SUPPORT_EMAIL}</p>
+                  <div className="text-center">
+                    <p className="font-serif text-xl italic text-brand-blue">Aviut</p>
+                    <p className="border-t border-slate-400 px-4 pt-0.5 text-[10px] uppercase tracking-widest text-slate-500">Signature</p>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="absolute -bottom-6 -left-2 bg-[#f4c67b] px-5 py-3 text-sm font-bold text-brand-navy shadow-lg md:-left-4">Built for care teams</div>
@@ -80,8 +101,7 @@ export default function HomePage() {
         </Reveal>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           <Reveal>
-            <div className="hover-lift relative isolate h-full overflow-hidden bg-brand-navy p-8 text-white md:p-10">
-              <Caduceus className="pointer-events-none absolute -bottom-10 -right-6 -z-10 h-72 rotate-12 text-white opacity-[0.07]" />
+            <div className="hover-lift h-full bg-brand-navy p-8 text-white md:p-10">
               <span className="text-sm font-bold uppercase tracking-widest text-[#f4c67b]">For employers</span>
               <h3 className="mt-5 text-3xl font-bold">Spend less time screening. More time caring.</h3>
               <p className="mt-4 leading-7 text-slate-300">Reach professionals by specialty, experience, and shift preference. Post roles, manage applicants, and build your next great care team from one focused dashboard.</p>
@@ -92,8 +112,7 @@ export default function HomePage() {
             </div>
           </Reveal>
           <Reveal delay={150}>
-            <div className="hover-lift relative isolate h-full overflow-hidden bg-[#e6eee9] p-8 text-brand-navy md:p-10">
-              <RodOfAsclepius className="pointer-events-none absolute -bottom-10 -right-2 -z-10 h-72 rotate-12 text-brand-green opacity-[0.15]" />
+            <div className="hover-lift h-full bg-[#e6eee9] p-8 text-brand-navy md:p-10">
               <span className="text-sm font-bold uppercase tracking-widest text-brand-green">For professionals</span>
               <h3 className="mt-5 text-3xl font-bold">A role that fits your life and your license.</h3>
               <p className="mt-4 leading-7 text-slate-600">Create a profile once, explore relevant openings, and keep every application organized. Your next opportunity should feel like a step forward.</p>
@@ -126,8 +145,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#f4c67b] px-4 py-16 text-center text-brand-navy">
-        <Reveal>
+      <section className="relative overflow-hidden bg-[#f4c67b] px-4 py-16 text-center text-brand-navy">
+        <EcgLine className="pointer-events-none absolute inset-x-0 top-1/2 h-32 w-full -translate-y-1/2 text-brand-navy md:h-40" />
+        <Reveal className="relative">
           <h2 className="font-serif text-4xl md:text-5xl">The right people are already looking.</h2>
           <p className="mx-auto mt-4 max-w-xl leading-7">Join the network built around the realities of healthcare work.</p>
           <Link href="/auth/register" className="btn mt-8 bg-brand-navy px-7 py-3 text-base text-white hover:bg-brand-blue">Create your account</Link>
