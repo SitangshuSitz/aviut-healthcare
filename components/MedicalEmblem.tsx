@@ -45,9 +45,33 @@ export function RodOfAsclepius({ className = "" }: EmblemProps) {
   );
 }
 
-// Left wing with layered feather tips; the right wing is its mirror image.
-const WING =
-  "M96 50 C82 36 52 26 8 26 C4 26 3 31 7 33 Q22 36 30 40 Q16 42 11 48 Q26 47 38 50 Q26 54 21 61 Q36 58 48 59 Q38 64 35 71 Q50 66 61 66 Q54 71 53 77 Q66 70 76 70 Q72 75 73 80 Q84 72 96 70 Z";
+// Left wing: long feathers fanning out from a solid root at the staff, the upper ones longest
+// and curling up at the tips. The right wing is its mirror image.
+// Each feather is [origin x, origin y, angle in degrees (+ is upward), length].
+const FEATHERS: [number, number, number, number][] = [
+  [94, 40, 15, 92],
+  [92, 44, 9, 86],
+  [90, 48, 3, 78],
+  [88, 52, -4, 68],
+  [86, 56, -11, 58],
+  [84, 60, -18, 46],
+  [84, 64, -26, 34],
+];
+
+function Wing({ transform }: { transform?: string }) {
+  return (
+    <g transform={transform} fill="currentColor">
+      {FEATHERS.map(([x, y, angle, len]) => (
+        <path
+          key={`${x}-${y}`}
+          d={`M0 -6 Q${-len * 0.6} -6 ${-len} ${-len * 0.14} Q${-len * 0.6} 8 0 6 Z`}
+          transform={`translate(${x} ${y}) rotate(${angle})`}
+        />
+      ))}
+      <path d="M100 32 L92 36 L82 48 L78 64 L90 70 L100 70 Z" />
+    </g>
+  );
+}
 
 // One of the two intertwined serpents; the other is its mirror image.
 const CADUCEUS_SERPENT: Segment[] = [
@@ -65,8 +89,8 @@ export function Caduceus({ className = "" }: EmblemProps) {
       <Staff cx={100} top={34} />
       <circle cx="100" cy="22" r="10" fill="currentColor" />
       <rect x="93" y="31" width="14" height="6" rx="2" fill="currentColor" />
-      <path d={WING} fill="currentColor" transform="translate(0 -12)" />
-      <path d={WING} fill="currentColor" transform={`${MIRROR} translate(0 -12)`} />
+      <Wing />
+      <Wing transform={MIRROR} />
       <Serpent body={CADUCEUS_SERPENT} head="translate(80 84) rotate(-8) scale(0.8)" />
       <Serpent body={CADUCEUS_SERPENT} head="translate(80 84) rotate(-8) scale(0.8)" transform={MIRROR} />
     </svg>

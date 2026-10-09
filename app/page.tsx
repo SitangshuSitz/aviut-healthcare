@@ -8,7 +8,6 @@ import { Typewriter } from "@/components/Typewriter";
 import { Reveal } from "@/components/Reveal";
 import { RoleMarquee } from "@/components/RoleMarquee";
 import { EMPLOYER_PLANS, JOBSEEKER_GOLD_MONTHLY, formatPrice } from "@/lib/plans";
-import { SUPPORT_EMAIL } from "@/lib/site";
 
 const HERO_WORDS = ["people.", "nurses.", "doctors.", "care teams.", "specialists."];
 
@@ -55,12 +54,7 @@ export default function HomePage() {
                 </div>
                 <div className="mt-4 border-t-2 border-brand-red" />
                 <div className="mt-0.5 border-t border-brand-navy/40" />
-                <div className="flex justify-between gap-4 pt-3 text-xs text-slate-500">
-                  <p>Name: <span className="border-b border-dotted border-slate-400 px-1 font-semibold text-brand-navy">Your care team</span></p>
-                  <p>Date: <span className="border-b border-dotted border-slate-400 px-1 font-semibold text-brand-navy">Today</span></p>
-                </div>
-                <p className="mt-3 font-serif text-4xl leading-none text-brand-red" aria-hidden="true">&#8478;</p>
-                <ol className="mt-1">
+                <ol className="mt-3">
                   {HOW_IT_WORKS.map((s) => (
                     <li key={s.step} className="group flex gap-4 border-b border-dashed border-brand-navy/15 p-2 py-3 transition last:border-0 hover:bg-white">
                       <span className="font-serif text-2xl text-brand-red transition group-hover:scale-110">{s.step}</span>
@@ -68,13 +62,6 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ol>
-                <div className="mt-3 flex items-end justify-between gap-4">
-                  <p className="text-[11px] text-slate-500">{SUPPORT_EMAIL}</p>
-                  <div className="text-center">
-                    <p className="font-serif text-xl italic text-brand-blue">Aviut</p>
-                    <p className="border-t border-slate-400 px-4 pt-0.5 text-[10px] uppercase tracking-widest text-slate-500">Signature</p>
-                  </div>
-                </div>
               </div>
             </div>
             <div className="absolute -bottom-6 -left-2 bg-[#f4c67b] px-5 py-3 text-sm font-bold text-brand-navy shadow-lg md:-left-4">Built for care teams</div>
@@ -146,11 +133,14 @@ export default function HomePage() {
       </section>
 
       <section className="relative overflow-hidden bg-[#f4c67b] px-4 py-16 text-center text-brand-navy">
-        <EcgLine className="pointer-events-none absolute inset-x-0 top-1/2 h-32 w-full -translate-y-1/2 text-brand-navy md:h-40" />
-        <Reveal className="relative">
+        <Reveal>
           <h2 className="font-serif text-4xl md:text-5xl">The right people are already looking.</h2>
           <p className="mx-auto mt-4 max-w-xl leading-7">Join the network built around the realities of healthcare work.</p>
-          <Link href="/auth/register" className="btn mt-8 bg-brand-navy px-7 py-3 text-base text-white hover:bg-brand-blue">Create your account</Link>
+          {/* The ECG trace runs edge to edge behind the button; the ring clears it around the button. */}
+          <div className="relative mt-8">
+            <EcgLine className="pointer-events-none absolute left-1/2 top-1/2 h-24 w-screen -translate-x-1/2 -translate-y-1/2 text-brand-red" />
+            <Link href="/auth/register" className="btn relative bg-brand-navy px-7 py-3 text-base text-white ring-[12px] ring-[#f4c67b] hover:bg-brand-blue">Create your account</Link>
+          </div>
         </Reveal>
       </section>
 

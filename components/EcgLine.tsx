@@ -27,7 +27,7 @@ export function EcgLine({ className = "" }: { className?: string }) {
       aria-hidden="true"
       focusable="false"
     >
-      <path d={TRACE} stroke="currentColor" strokeWidth="2" strokeLinejoin="round" opacity="0.15" />
+      <path d={TRACE} stroke="currentColor" strokeWidth="2" strokeLinejoin="round" opacity="0.3" />
       <path
         d={TRACE}
         pathLength={1}
@@ -36,7 +36,7 @@ export function EcgLine({ className = "" }: { className?: string }) {
         strokeWidth="3"
         strokeLinejoin="round"
         strokeLinecap="round"
-        opacity="0.35"
+        opacity="0.85"
       />
     </svg>
   );
