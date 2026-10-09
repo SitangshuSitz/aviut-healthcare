@@ -45,30 +45,34 @@ export function RodOfAsclepius({ className = "" }: EmblemProps) {
   );
 }
 
-// Left wing: long feathers fanning out from a solid root at the staff, the upper ones longest
-// and curling up at the tips. The right wing is its mirror image.
+// Left wing: a solid arch rising from the staff and sweeping out to a pointed
+// tip, with feathers hanging beneath it. Feathers point outward at the tip and
+// turn steadily downward toward the staff. The right wing is its mirror image.
+const WING_ARCH =
+  "M100 42 C92 28 70 14 40 11 C24 10 12 12 3 16 C9 22 15 26 22 28 C40 32 64 38 84 50 C92 55 96 60 100 64 Z";
+
 // Each feather is [origin x, origin y, angle in degrees (+ is upward), length].
 const FEATHERS: [number, number, number, number][] = [
-  [94, 40, 15, 92],
-  [92, 44, 9, 86],
-  [90, 48, 3, 78],
-  [88, 52, -4, 68],
-  [86, 56, -11, 58],
-  [84, 60, -18, 46],
-  [84, 64, -26, 34],
+  [17, 25, -50, 22],
+  [26, 28, -52, 30],
+  [38, 32, -60, 34],
+  [50, 36, -67, 36],
+  [62, 41, -74, 34],
+  [74, 47, -81, 30],
+  [86, 54, -88, 20],
 ];
 
 function Wing({ transform }: { transform?: string }) {
   return (
     <g transform={transform} fill="currentColor">
+      <path d={WING_ARCH} />
       {FEATHERS.map(([x, y, angle, len]) => (
         <path
           key={`${x}-${y}`}
-          d={`M0 -6 Q${-len * 0.6} -6 ${-len} ${-len * 0.14} Q${-len * 0.6} 8 0 6 Z`}
+          d={`M0 -7.5 C${-len * 0.6} -8.5 ${-len * 0.9} -4 ${-len} 0 C${-len * 0.9} 4 ${-len * 0.6} 8.5 0 7.5 Z`}
           transform={`translate(${x} ${y}) rotate(${angle})`}
         />
       ))}
-      <path d="M100 32 L92 36 L82 48 L78 64 L90 70 L100 70 Z" />
     </g>
   );
 }
